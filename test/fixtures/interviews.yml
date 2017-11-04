@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date: 2017-11-04
+  time: 2017-11-04 17:16:27
+  interviewee: one
+
+two:
+  title: MyString
+  date: 2017-11-04
+  time: 2017-11-04 17:16:27
+  interviewee: two

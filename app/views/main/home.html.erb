@@ -1,0 +1,33 @@
+<% @interviews.each do |data, interviews| %>
+	<br>
+	<h1><%= data %></h1>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Title</th>
+	      <th>Date</th>
+	      <th>Interviewee</th>
+	      <th>Interviewers</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% interviews.each do |interview| %>
+	      <tr>
+	        <td><%= interview.title %></td>
+	        <td><%= interview.date %></td>
+	        <td><%= interview.interviewee.email %></td>
+	        <td><%= interview.interviewers.pluck(:email).join(",") %></td>
+	        <td><%= link_to 'Edit', edit_interview_path(interview) %></td>
+	        <td><%= link_to 'Destroy', interview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<br>
+<% end %>
+
+<br>
+
+<%= link_to "Create new Interview", new_interview_path %>

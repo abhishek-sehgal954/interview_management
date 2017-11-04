@@ -1,0 +1,41 @@
+<h1>Editing Interview</h1>
+
+<%= form_with(model: @interview, local: true) do |form| %>
+  <% if @interview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interview.errors.count, "error") %> prohibited this interview from being saved:</h2>
+
+      <ul>
+      <% @interview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :interview_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :datetime, id: :interview_date %>
+  </div>
+
+  <div class="field">
+    <input type="email" value="<%= @interview.interviewee.email %>" placeholder="Interviewee Email" name="interviewee_email">
+  </div>
+
+  <div class="field">
+    <input type="text" value="<%= @interview.interviewers.pluck(:email).join(" ") %>" placeholder="Interviewer Emails" name="interviewer_emails">
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', @interview %> |
+<%= link_to 'Back', interviews_path %>
