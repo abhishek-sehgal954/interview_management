@@ -7,3 +7,5 @@
 3. Provision to edit an existing interview, changing date or time of an interview, adding or removing interviewee or interviewer.
 4. Cancelling an interview.
 5. Interviewer does not have overlapping interviews. 
+
+Assumption: Each interview is of one hour.
